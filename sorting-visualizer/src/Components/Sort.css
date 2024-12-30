@@ -1,0 +1,82 @@
+/* Container for the entire page */
+.array-container {
+    display: flex;
+    flex-direction: column; /* Stack header and bars vertically */
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Header styling for buttons */
+  .header {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Spacing between buttons */
+    padding: 20px;
+    background-color: #f5f5f5; /* Light background for header */
+    width: 100%;
+    border-bottom: 2px solid #ccc; /* Divider between header and bars */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for header */
+  }
+  
+  /* Button styling */
+  .header button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff; /* Button color */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .header button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+  }
+  
+  /* Bar container styling */
+  .bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    padding: 20px 0;
+    overflow-x: auto; /* Allows horizontal scrolling if needed */
+  }
+  
+  /* Individual bar styling */
+  .bar-container {
+    position: relative;
+    margin: 0 2px;
+  }
+  
+  .bar {
+    background-color: blue;
+    width: 10px;
+    transition: height 0.2s ease;
+    position: relative;
+  }
+  
+  /* Tooltip styling */
+  .bar::after {
+    content: attr(data-value);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  
+  .bar:hover::after {
+    opacity: 1;
+  }
+  
